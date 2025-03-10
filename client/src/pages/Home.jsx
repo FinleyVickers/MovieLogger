@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { FaSearch, FaTimes } from 'react-icons/fa';
+import { FaSearch, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 import { API_URL } from '../config/api';
 import './Home.css';
+import '../styles/theme.css';
 
 const DEBOUNCE_DELAY = 300; // milliseconds
 
@@ -13,6 +14,26 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(null);
   const [searching, setSearching] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  // Apply theme changes
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
+  // Theme initialization and system preference detection
+  useEffect(() => {
+    // Check if user has a saved preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === 'dark');
+    } else {
+      // Check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(prefersDark);
+    }
+  }, []);
 
   // Debounced search function
   const debouncedSearch = useCallback(
@@ -34,7 +55,7 @@ const Home = () => {
         setSearching(false);
       }
     },
-    [] // Empty dependency array since we don't use any external values
+    []
   );
 
   // Effect for handling search term changes
@@ -72,6 +93,10 @@ const Home = () => {
     fetchMovies();
   };
 
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   // Placeholder image for movies without posters
   const placeholderImage = 'https://via.placeholder.com/300x450?text=No+Poster';
 
@@ -82,6 +107,14 @@ const Home = () => {
   return (
     <div className="home">
       <div className="hero">
+        <button 
+          className="theme-toggle" 
+          onClick={toggleTheme}
+          aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {isDarkMode ? <FaSun /> : <FaMoon />}
+        </button>
+
         <h1>Track Your Movie Journey</h1>
         <p>Search for movies to log, rate, and keep track of all the films you've watched.</p>
         
@@ -132,6 +165,7 @@ const Home = () => {
                   src={movie.poster_url || placeholderImage}
                   alt={movie.title}
                   className="movie-poster"
+                  loading="lazy"
                 />
                 <div className="movie-info">
                   <h3 className="movie-title">{movie.title}</h3>

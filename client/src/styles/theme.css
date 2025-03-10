@@ -1,0 +1,74 @@
+:root {
+  /* Light theme colors */
+  --primary-color-light: #0d253f;
+  --secondary-color-light: #01b4e4;
+  --background-color-light: #f5f5f7;
+  --surface-color-light: #ffffff;
+  --text-primary-light: #333333;
+  --text-secondary-light: #666666;
+  --border-color-light: #e1e1e1;
+  --card-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --hover-shadow-light: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+  /* Dark theme colors */
+  --primary-color-dark: #01b4e4;
+  --secondary-color-dark: #90cea1;
+  --background-color-dark: #121212;
+  --surface-color-dark: #1e1e1e;
+  --text-primary-dark: #ffffff;
+  --text-secondary-dark: #b3b3b3;
+  --border-color-dark: #333333;
+  --card-shadow-dark: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --hover-shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  /* Default to dark theme */
+  --primary-color: var(--primary-color-dark);
+  --secondary-color: var(--secondary-color-dark);
+  --background-color: var(--background-color-dark);
+  --surface-color: var(--surface-color-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --border-color: var(--border-color-dark);
+  --card-shadow: var(--card-shadow-dark);
+  --hover-shadow: var(--hover-shadow-dark);
+}
+
+/* Light theme class */
+.light-theme {
+  --primary-color: var(--primary-color-light);
+  --secondary-color: var(--secondary-color-light);
+  --background-color: var(--background-color-light);
+  --surface-color: var(--surface-color-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --border-color: var(--border-color-light);
+  --card-shadow: var(--card-shadow-light);
+  --hover-shadow: var(--hover-shadow-light);
+}
+
+/* Apply base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+} 
