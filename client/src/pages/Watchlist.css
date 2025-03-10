@@ -1,0 +1,107 @@
+.watchlist-page {
+  padding-bottom: 40px;
+}
+
+.watchlist-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.watchlist-header h1 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.watchlist-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.watchlist-card {
+  position: relative;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.watchlist-card:hover {
+  transform: translateY(-5px);
+}
+
+.movie-poster-container {
+  position: relative;
+  display: block;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.watchlist-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie-poster-container:hover .watchlist-overlay {
+  opacity: 1;
+}
+
+.watchlist-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movie-info {
+  padding: 15px;
+}
+
+.movie-title {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.movie-title a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.movie-title a:hover {
+  color: var(--secondary-color);
+}
+
+.movie-year {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.added-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.empty-state {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #666;
+} 

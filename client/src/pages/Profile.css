@@ -1,0 +1,139 @@
+.profile {
+  padding-bottom: 40px;
+}
+
+.profile-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile-header h1 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.profile-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.empty-state {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.movie-logs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.movie-log-card {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.movie-poster-link {
+  flex: 0 0 120px;
+}
+
+.movie-poster {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.movie-log-details {
+  flex: 1;
+  padding: 20px;
+  position: relative;
+}
+
+.movie-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.movie-title a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.movie-title a:hover {
+  text-decoration: underline;
+}
+
+.movie-year {
+  color: #666;
+  font-weight: normal;
+}
+
+.log-meta {
+  display: flex;
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.watched-date, .rating {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.watched-date svg, .rating svg {
+  margin-right: 5px;
+}
+
+.star-icon {
+  color: #ffc107;
+}
+
+.review {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.log-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-sm {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-sm svg {
+  margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+  .movie-log-card {
+    flex-direction: column;
+  }
+  
+  .movie-poster-link {
+    flex: 0 0 auto;
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: 200px;
+  }
+} 
