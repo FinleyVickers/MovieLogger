@@ -20,5 +20,4 @@ sketch
 !.env.example
 
 ### db ###
-*.db
-*.db-journal
+server/data/movielogger.db
