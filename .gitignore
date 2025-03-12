@@ -18,3 +18,7 @@ sketch
 ### env ###
 .env*
 !.env.example
+
+### db ###
+*.db
+*.db-journal

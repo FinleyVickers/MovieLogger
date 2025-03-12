@@ -41,7 +41,7 @@ function initDatabase() {
       user_id INTEGER NOT NULL,
       movie_id INTEGER NOT NULL,
       watched_date DATE NOT NULL,
-      rating INTEGER CHECK (rating >= 0 AND rating <= 10),
+      rating INTEGER CHECK (rating >= 0 AND rating <= 5),
       review TEXT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,

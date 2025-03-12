@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { FaTrash, FaCheck } from 'react-icons/fa';
 import { API_URL } from '../config/api';
-import './Watchlist.css';
 
 const Watchlist = () => {
   const [watchlist, setWatchlist] = useState([]);

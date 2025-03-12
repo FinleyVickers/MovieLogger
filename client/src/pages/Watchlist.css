@@ -15,15 +15,15 @@
 
 .watchlist-header p {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--text-secondary, #666);
 }
 
 .watchlist-card {
   position: relative;
-  background-color: white;
+  background-color: var(--surface-color);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow, 0 2px 10px rgba(0, 0, 0, 0.1));
   transition: transform 0.3s ease;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .movie-title a {
-  color: var(--text-color);
+  color: var(--text-primary);
   text-decoration: none;
 }
 
@@ -82,26 +82,26 @@
 }
 
 .movie-year {
-  color: #888;
+  color: var(--text-secondary, #888);
   font-size: 0.9rem;
   margin-bottom: 5px;
 }
 
 .added-date {
   font-size: 0.8rem;
-  color: #888;
+  color: var(--text-secondary, #888);
 }
 
 .empty-state {
-  background-color: white;
+  background-color: var(--surface-color);
   border-radius: 8px;
   padding: 40px;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow, 0 2px 10px rgba(0, 0, 0, 0.1));
 }
 
 .empty-state p {
   margin-bottom: 20px;
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text-secondary, #666);
 } 

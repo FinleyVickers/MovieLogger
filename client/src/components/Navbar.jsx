@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { FaFilm, FaUser, FaList, FaSignInAlt, FaUserPlus, FaSignOutAlt } from 'react-icons/fa';
+import { FaFilm, FaUser, FaList, FaSignOutAlt, FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
-import './Navbar.css';
 
 const Navbar = () => {
   const { user, isAuthenticated, logout } = useAuth();

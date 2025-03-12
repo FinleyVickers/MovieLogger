@@ -4,7 +4,6 @@ import axios from 'axios';
 import { FaStar, FaRegStar, FaPlus, FaCheck, FaCalendarAlt, FaClock } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import { API_URL } from '../config/api';
-import './MovieDetail.css';
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -159,7 +158,7 @@ const MovieDetail = () => {
   };
 
   const renderStars = (count) => {
-    return Array(10).fill(0).map((_, i) => (
+    return Array(5).fill(0).map((_, i) => (
       <button 
         key={i} 
         type="button"
@@ -194,24 +193,34 @@ const MovieDetail = () => {
   const placeholderImage = 'https://via.placeholder.com/300x450?text=No+Poster';
 
   return (
-    <div className="movie-detail">
+    <div className="movie-detail-page">
       {successMessage && (
         <div className="alert alert-success">{successMessage}</div>
       )}
       
-      <div className="movie-header">
-        <div className="movie-poster-container">
+      {movie.backdrop_url && (
+        <div className="movie-backdrop-container">
+          <img 
+            src={movie.backdrop_url} 
+            alt={movie.title} 
+            className="movie-backdrop"
+          />
+          <div className="backdrop-overlay"></div>
+        </div>
+      )}
+      
+      <div className="movie-detail-content">
+        <div className="movie-detail-poster">
           <img 
             src={movie.poster_url || placeholderImage} 
-            alt={movie.title} 
-            className="movie-detail-poster"
+            alt={movie.title}
           />
         </div>
         
-        <div className="movie-info-container">
-          <h1 className="movie-title">{movie.title}</h1>
+        <div className="movie-detail-info">
+          <h1 className="movie-detail-title">{movie.title}</h1>
           
-          <div className="movie-meta">
+          <div className="movie-detail-meta">
             {movie.year && (
               <span className="movie-year">{movie.year}</span>
             )}
@@ -220,12 +229,11 @@ const MovieDetail = () => {
                 <FaClock /> {formatRuntime(movie.runtime)}
               </span>
             )}
+            {movie.genres && (
+              <span className="movie-genres">{movie.genres}</span>
+            )}
           </div>
 
-          {movie.genres && (
-            <div className="movie-genres">{movie.genres}</div>
-          )}
-          
           {movie.director && (
             <div className="movie-director">
               <strong>Director:</strong> {movie.director}
@@ -255,10 +263,10 @@ const MovieDetail = () => {
           </div>
 
           {isAuthenticated && (
-            <div className="movie-log-section">
-              <h2>{hasWatched ? 'Update Your Log' : 'Log This Movie'}</h2>
+            <div className="log-form">
+              <h3>{hasWatched ? 'Update Your Log' : 'Log This Movie'}</h3>
               <form onSubmit={handleLogMovie}>
-                <div className="form-group">
+                <div className="log-form-group">
                   <label>
                     <FaCalendarAlt /> Watch Date:
                   </label>
@@ -273,17 +281,17 @@ const MovieDetail = () => {
                   </div>
                 </div>
 
-                <div className="form-group">
+                <div className="log-form-group">
                   <label>Rating:</label>
                   <div className="rating-stars">
                     {renderStars(userRating)}
                     {userRating > 0 && (
-                      <span className="rating-number">{userRating}/10</span>
+                      <span className="rating-number">{userRating}/5</span>
                     )}
                   </div>
                 </div>
 
-                <div className="form-group">
+                <div className="log-form-group">
                   <label>Review:</label>
                   <textarea
                     value={review}

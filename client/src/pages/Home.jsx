@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { FaSearch, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 import { API_URL } from '../config/api';
-import './Home.css';
-import '../styles/theme.css';
 
 const DEBOUNCE_DELAY = 300; // milliseconds
 

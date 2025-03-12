@@ -4,7 +4,6 @@ import axios from 'axios';
 import { FaStar, FaCalendarAlt, FaTrash } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import { API_URL } from '../config/api';
-import './Profile.css';
 
 const Profile = () => {
   const { user } = useAuth();
@@ -110,7 +109,7 @@ const Profile = () => {
                   {log.rating && (
                     <div className="rating">
                       <FaStar className="star-icon" />
-                      <span>{log.rating}/10</span>
+                      <span>{log.rating}/5</span>
                     </div>
                   )}
                 </div>

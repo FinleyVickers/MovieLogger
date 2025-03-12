@@ -9,7 +9,6 @@ import Profile from './pages/Profile'
 import Watchlist from './pages/Watchlist'
 import { AuthProvider } from './context/AuthContext'
 import PrivateRoute from './components/PrivateRoute'
-import './App.css'
 
 function App() {
   return (
