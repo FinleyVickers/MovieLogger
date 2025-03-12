@@ -101,4 +101,27 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Inspired by Letterboxd and other movie tracking platforms
-- Built using modern web technologies and best practices 
+- Built using modern web technologies and best practices
+
+## Database Setup
+
+The application uses SQLite for data storage. To set up your local database:
+
+1. Navigate to the server directory:
+   ```bash
+   cd server
+   ```
+
+2. Install dependencies if you haven't already:
+   ```bash
+   npm install
+   ```
+
+3. Initialize the database:
+   ```bash
+   node data/init-db.js
+   ```
+
+This will create a new `movielogger.db` file with the correct schema. The database file is gitignored to protect user data.
+
+Note: If you need to reinitialize the database, you'll need to manually delete the existing `movielogger.db` file first. 
